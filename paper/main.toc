@@ -1,0 +1,26 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {2}Project structure}{1}{}%
+\contentsline {paragraph}{Project structure}{1}{}%
+\contentsline {paragraph}{Why:}{1}{}%
+\contentsline {paragraph}{main.tex:}{3}{}%
+\contentsline {paragraph}{Why:}{3}{}%
+\contentsline {paragraph}{package\_and\_commands.tex:}{3}{}%
+\contentsline {paragraph}{Why:}{3}{}%
+\contentsline {paragraph}{macros.tex:}{3}{}%
+\contentsline {paragraph}{references.bib:}{3}{}%
+\contentsline {paragraph}{Why:}{3}{}%
+\contentsline {paragraph}{sections:}{3}{}%
+\contentsline {paragraph}{Why:}{3}{}%
+\contentsline {paragraph}{fig:}{4}{}%
+\contentsline {paragraph}{Why:}{4}{}%
+\contentsline {paragraph}{figure\_scripts:}{4}{}%
+\contentsline {paragraph}{Why:}{4}{}%
+\contentsline {paragraph}{data:}{4}{}%
+\contentsline {paragraph}{Why:}{4}{}%
+\contentsline {paragraph}{images:}{4}{}%
+\contentsline {section}{\numberline {3}Naming conventions and references}{4}{}%
+\contentsline {section}{\numberline {4}Citations}{5}{}%
+\contentsline {section}{\numberline {5}Figures}{5}{}%
+\contentsline {section}{\numberline {6}Tables}{5}{}%
+\contentsline {section}{\numberline {7}Generating diff files}{5}{}%
+\contentsline {section}{\numberline {8}Useful Tools}{5}{}%

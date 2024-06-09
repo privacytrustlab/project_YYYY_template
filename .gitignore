@@ -9,3 +9,5 @@ paper/packages_and_commands.log
 *.dpth
 *.log
 *.md5
+*.log
+*.gz

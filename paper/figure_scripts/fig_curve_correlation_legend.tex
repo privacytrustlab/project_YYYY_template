@@ -1,0 +1,23 @@
+% !TeX root = ../main.tex
+\begin{tikzpicture}
+	\begin{axis}[scale=0.01,
+		hide axis,
+		xmin=0, xmax=1,
+		ymin=0, ymax=1,
+		legend columns=2,
+		%legend style={draw=none}
+		]
+		\addlegendimage{blue,thick}
+		\addlegendentry{};
+		\addlegendimage{red,thick}
+		\addlegendentry{Median};
+		\addlegendimage{blue,opacity=0.5,mark=square*, only marks}
+		\addlegendentry{};
+		\addlegendimage{red,opacity=0.5,mark=square*, only marks}
+		\addlegendentry{Inter-quartile range};
+		\addlegendimage{blue,,opacity=0.2,mark=square*, only marks}
+		\addlegendentry{};
+		\addlegendimage{red,,opacity=0.2,mark=square*, only marks}
+		\addlegendentry{Overall range};
+	\end{axis}
+\end{tikzpicture}

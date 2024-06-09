@@ -1,0 +1,27 @@
+% !TeX root = ../main.tex
+\begin{tikzpicture}
+	\begin{axis} [scale=0.8, width=0.4\linewidth,height=0.28\linewidth,yticklabel= {\pgfmathprintnumber\tick\%}, ylabel={Average Odds},ymin=5.5,ymax=10.5,xmin=100,xmax=300,xlabel=Epoch,axis y line*=left,axis x line*=bottom,ylabel near ticks,title= {\textbf{(a) Fixed Data Reshuffling}},legend style={at={(1.02,1.05)},draw=none,font=\scriptsize,empty legend}]
+		
+		\addplot [blue,no marks, thick] table[x=x,y=y1] {data/acsincome/curve_correlation_weight.dat};
+		\addplot [name path=topw,opacity=0.,no marks] table[x=x,y=y2] {data/acsincome/curve_correlation_weight.dat};
+		\addplot [name path=botw,opacity=0.,no marks] table[x=x,y=y3] {data/acsincome/curve_correlation_weight.dat};
+		\addplot[blue,opacity=0.5] fill between[of=topw and botw];
+		\addplot [name path=topwm,opacity=0.,no marks] table[x=x,y=y4] {data/acsincome/curve_correlation_weight.dat};
+		\addplot [name path=botwm,opacity=0.,no marks] table[x=x,y=y5] {data/acsincome/curve_correlation_weight.dat};
+		\addplot[blue,opacity=0.2] fill between[of=topwm and botwm];
+		
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis} [scale=0.8, width=0.4\linewidth,height=0.28\linewidth,yticklabel= {\pgfmathprintnumber\tick\%},ymin=5.5,ymax=10.5,xmin=100,xmax=300,xlabel=Epoch,axis y line*=left,axis x line*=bottom,ylabel near ticks,title= {\textbf{(b) Fixed Weight Initialization}},legend style={at={(1.02,1.05)},draw=none,font=\scriptsize,empty legend},ymajorticks=false]
+		
+		\addplot [red,no marks, thick] table[x=x,y=y1] {data/acsincome/curve_correlation_shuffle.dat};
+		\addplot [name path=tops,opacity=0.,no marks, thick] table[x=x,y=y2] {data/acsincome/curve_correlation_shuffle.dat};
+		\addplot [name path=bots,opacity=0.,no marks, thick] table[x=x,y=y3] {data/acsincome/curve_correlation_shuffle.dat};
+		\addplot[red,opacity=0.5] fill between[of=tops and bots];
+		\addplot [name path=topsm,opacity=0.,no marks, thick] table[x=x,y=y4] {data/acsincome/curve_correlation_shuffle.dat};
+		\addplot [name path=botsm,opacity=0.,no marks, thick] table[x=x,y=y5] {data/acsincome/curve_correlation_shuffle.dat};
+		\addplot[red,opacity=0.2] fill between[of=topsm and botsm];
+		
+	\end{axis}
+\end{tikzpicture}

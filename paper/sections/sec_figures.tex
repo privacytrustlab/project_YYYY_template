@@ -1,70 +1,79 @@
+% !TeX root = ../main.tex
 \section{Figures}\label{sec:figures}
-There are two wonderful packages in LaTeX to create figures TikZ and PGFPlots. The former can be used to create any kind of vector graphic, the latter focuses on plots. Together they can create almost any kind of figure you need for a paper. Use them.
+There are two wonderful packages in LaTeX to create figures TikZ and PGFPlots. The former can be used to create any kind of vector graphic, the latter focuses on plots. Together they can create almost any kind of figure you need for a paper. Use them. Here, some examples from a recent paper \cite{ganesh2023impact}: 
 
-\begin{whyblock}
+\begin{figure*}[hbtp]
+	\centering
+	\addtolength{\tabcolsep}{-8pt}
+	\begin{tabular}{cc}
+		\textbf{(a) Fairness} & \textbf{(b) Performance} \\[0.2cm]
+	    \if\compileFigures1
+			\input{figure_scripts/fig_variance_introduction_avgodds}
+		\else
+			\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+			\stepcounter{figureNumber}
+		\fi
+	 &  \if\compileFigures1
+			\input{figure_scripts/fig_variance_introduction_fscore}
+		\else
+			\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+			\stepcounter{figureNumber}
+		\fi \\
+	\end{tabular}
+	\caption{ Some box plots}
+	\label{fig:variance_introduction}
+\end{figure*}
 
-\begin{itemize}
 
-\item Creating figures inside LaTeX ensures that they use the correct font. You can scale the figure without ending up with tiny fonts.
-\item They just look better.
-\item Makes it easier to switch between different templates, often a simple change to the scale of the figure is enough. Externally created figures are harder to scale when desiring consistent font(size).
-\end{itemize}
-\end{whyblock}
-When using figures, put the following statement into your main.tex file before
- \verb|\input{packages_and_commands}|:
+\begin{figure*}[hbtp]
+	\centering
+	\if\compileFigures1
+		\input{figure_scripts/fig_overview} 
+	\else
+		\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+	\stepcounter{figureNumber}
+	\fi 
+	\caption{An overview}
+	\label{fig:overview}
+\end{figure*}
 
-\verb|%Set to 1 to compile Figures|\\
-\verb|\def\compileFigures{0}|\\
-\verb|\newcommand{\filename}{main}|\\
-\verb|\newcounter{figureNumber}|\\
 
-Your \verb|packages_and_commands.tex\verb| file should contain:
+\begin{figure*}[htbp]
+	\centering
+	\if\compileFigures1
+		\input{figure_scripts/fig_decouple_scatter}
+	\else
+		% The file contains three figures so wee need to include three here
+		\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+		\stepcounter{figureNumber}
+		\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+		\stepcounter{figureNumber}
+		\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+		\stepcounter{figureNumber}
+	\fi 	
+	\caption{Some scatterplots}
+	\label{fig:decouple_scatter}
+\end{figure*}
 
-\verb|\usepackage{tikz}|\\
-\verb|\if\compileFigures1|\\
-\verb|\usetikzlibrary{external}|\\
-\verb|\tikzexternalize[prefix=fig/] % activate!|\\
-\verb|\fi|
 
-Important: To use the external library you need to add -shell-escape to your compile command. How to do this depends on your IDE.
-
-For every figure you create use the following template:
-
-\verb|\begin{figure}|\\
-\verb|	\centering|\\
-\verb|	\if\compileFigures1|\\
-\verb|	\input{figure_scripts/fig_<meaningful_filename>}|\\
-\verb|	\else|\\
-\verb|	\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}|\\
-\verb|	\stepcounter{figureNumber}|\\
-\verb|	\fi|\\
-\verb|	\caption{<meaningful_caption>}|\\
-\verb|	\label{fig:<meaningful_label>}|\\
-\verb|\end{figure}|
-
-\begin{whyblock}
-\begin{itemize}
-\item With this setup, by changing \verb|\def\compileFigures{0}| you can switch from creating the figures to just including them as pre-generated pdfs.
-\item For the camera ready version of your paper you submit your code. Here you want to ensure that everything compiles correctly, this is easier when just submitting the .pdf of each figure.
-\item Allows a collaborator to compile the file without compiling the figures.
-\end{itemize}
-\end{whyblock}
-
-\textbf{Note:} If your figure consists of <x> Tikz pictures, the two lines in the \verb|\else| block need to be repeated <x> times.
-
-\textbf{Tip:} If you have multiple figures with a common legend you can use the following code to create the legend:
-
-\verb|\begin{tikzpicture}|\\
-\verb|	\begin{axis}[scale=0.01,|\\
-\verb|		hide axis,|\\
-\verb|		xmin=0, xmax=1,|\\
-\verb|		ymin=0, ymax=1,|\\
-\verb|		legend columns=<number>,|\\
-\verb|		]|\\
-\verb|		\addlegendimage{<configuration_of_entry>}|\\
-\verb|		\addlegendentry{<name>};|\\
-\verb|		%Example|\\
-\verb|		\addlegendimage{blue,mark=square*}|\\
-\verb|		\addlegendentry{QII};|\\
-\verb|	\end{axis}|\\
-\verb|\end{tikzpicture}|
+\begin{figure*}[htbp]
+	\centering	
+	\if\compileFigures1
+		\input{figure_scripts/fig_curve_correlation}
+		\raisebox{1.03cm}{
+		\input{figure_scripts/fig_curve_correlation_legend}
+		}
+	\else
+		% The files contain three figures so wee need to include three here
+		\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+		\stepcounter{figureNumber}
+		\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+		\stepcounter{figureNumber}
+		\raisebox{1.03cm}{
+		\includegraphics[]{fig/\filename-figure\thefigureNumber.pdf}
+		}
+		\stepcounter{figureNumber}
+	\fi 
+	\caption{And some line plots with a legend}
+	\label{fig:decouple_correlation}
+\end{figure*}

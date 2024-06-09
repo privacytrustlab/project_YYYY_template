@@ -1,0 +1,9 @@
+% !TeX root = ../main.tex
+\begin{tikzpicture}[rotate=-90,transform shape]
+	\begin{axis}[title={}, width=0.3\linewidth,height=0.65\linewidth, ymin=0,ymax=10,yticklabel= {\color{red} \pgfmathprintnumber\tick\%}, ylabel={\small \color{red} Average Odds},ylabel near ticks, yticklabel pos=right, enlarge x limits=0.25, x tick label style={font=\small}, y tick label style={font=\small}, xticklabels={Baseline, Reweighing, EO Loss, FairBatch}, xtick={0,1,2,3},xmin=0,xmax=3,xticklabel style={rotate=90, anchor=east},yticklabel style={rotate=90, anchor=north}]
+		\addplot [red,box plot median] table {data/acsincome/variance_introduction_mitigation_avgodds.dat};
+		\addplot [red,box plot box] table {data/acsincome/variance_introduction_mitigation_avgodds.dat};
+		\addplot [red,box plot top whisker] table {data/acsincome/variance_introduction_mitigation_avgodds.dat};
+		\addplot [red,box plot bottom whisker] table {data/acsincome/variance_introduction_mitigation_avgodds.dat};
+	\end{axis}
+\end{tikzpicture}

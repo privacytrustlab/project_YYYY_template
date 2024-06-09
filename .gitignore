@@ -5,3 +5,7 @@ paper/main.log
 paper/main.out
 paper/main.synctex.gz
 paper/packages_and_commands.log
+*.dep
+*.dpth
+*.log
+*.md5

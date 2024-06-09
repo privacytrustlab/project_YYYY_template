@@ -1,0 +1,9 @@
+% !TeX root = ../main.tex
+\begin{tikzpicture}[rotate=-90,transform shape]
+	\begin{axis}[title={}, width=0.3\linewidth,height=0.35\linewidth, ymin=78,ymax=82,yticklabel= {\color{blue} \pgfmathprintnumber\tick\%}, ylabel={\small \color{blue} $F_1$ Score{\color{white}y}},ylabel near ticks, yticklabel pos=right, enlarge x limits=0.25, x tick label style={font=\small}, y tick label style={font=\small}, xticklabels={}, ytick={78,79,80,81,82}, xtick={0,1,2,3},xmin=0,xmax=3,xticklabel style={rotate=90, anchor=east},yticklabel style={rotate=90, anchor=north}]
+		\addplot [blue,box plot median] table {data/acsincome/variance_introduction_mitigation_fscore.dat};
+		\addplot [blue,box plot box] table {data/acsincome/variance_introduction_mitigation_fscore.dat};
+		\addplot [blue,box plot top whisker] table {data/acsincome/variance_introduction_mitigation_fscore.dat};
+		\addplot [blue,box plot bottom whisker] table {data/acsincome/variance_introduction_mitigation_fscore.dat};
+	\end{axis}
+\end{tikzpicture}

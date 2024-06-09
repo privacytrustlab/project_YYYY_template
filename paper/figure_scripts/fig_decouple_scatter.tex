@@ -1,0 +1,18 @@
+% !TeX root = ../main.tex
+\begin{tikzpicture}[]
+	\begin{axis}[scale=0.7,title={\textbf{(a) Normal training}}, width=0.32\linewidth,height=0.28\linewidth, ymin=79,ymax=79.9,yticklabel= {\pgfmathprintnumber\tick\%}, ylabel={\small $F_1$ Score},ylabel near ticks, enlarge x limits=0.2, xticklabel= {\pgfmathprintnumber\tick\%}, xlabel={\small Average Odds}, x tick label style={font=\small,text width=1cm,xshift=0.35cm}, y tick label style={font=\small}, xmin=5.8,xmax=9.2,xtick={6,7,8,9},legend pos=south east,legend cell align=left,legend style={draw=none,font=\scriptsize},axis background/.style={}]
+		\addplot[green,only marks,mark size=1.2pt] table[x index=0, y index=1] {data/acsincome/decouple_scatter_all.dat};
+	\end{axis}
+\end{tikzpicture}%
+$\qquad$
+\begin{tikzpicture}[]
+	\begin{axis}[scale=0.7,title={\textbf{(b) Fixed Reshuffling}}, width=0.32\linewidth,height=0.28\linewidth, ymin=79,ymax=79.9,ymajorticks=false,ylabel near ticks, enlarge x limits=0.2, xticklabel= {\pgfmathprintnumber\tick\%}, xlabel={\small Average Odds}, x tick label style={font=\small,text width=1cm,xshift=0.35cm}, y tick label style={font=\small}, xmin=5.8,xmax=9.2,xtick={6,7,8,9},legend pos=south east,legend cell align=left,legend style={draw=none,font=\scriptsize},axis background/.style={}]
+		\addplot[blue,only marks,mark size=1.2pt] table[x index=0, y index=1] {data/acsincome/decouple_scatter_weight.dat};
+	\end{axis}
+\end{tikzpicture}%
+$\qquad$
+\begin{tikzpicture}[]
+	\begin{axis}[scale=0.7,title={\textbf{(c) Fixed Weight Init}}, width=0.32\linewidth,height=0.28\linewidth, ymin=79,ymax=79.9,ymajorticks=false,ylabel near ticks, enlarge x limits=0.2, xticklabel= {\pgfmathprintnumber\tick\%}, xlabel={\small Average Odds}, x tick label style={font=\small,text width=1cm,xshift=0.35cm}, y tick label style={font=\small}, xmin=5.8,xmax=9.2,xtick={6,7,8,9},legend pos=south east,legend cell align=left,legend style={draw=none,font=\scriptsize},axis background/.style={}]
+		\addplot[red,only marks,mark size=1.2pt] table[x index=0, y index=1] {data/acsincome/decouple_scatter_shuffle.dat};
+	\end{axis}
+\end{tikzpicture}

@@ -2,8 +2,52 @@
 
 Use the booktabs package. Ideally only have three horizontal lines. Don't have vertical lines! Generally follow the advise \href{https://people.inf.ethz.ch/markusp/teaching/guides/guide-tables.pdf}{here}.
 
-\begin{tipblock}{Tip} If your table gets so big that you really think you need vertical lines. You don't. But color might help.
-\end{tipblock}
 
-\begin{whyblock}{Why} You spend so much time on creating the data for your table. Having an easily comprehensible table increases the chances that someone actually reads it.
-\end{whyblock}
+\begin{table*}
+	\begin{center}
+		\caption{Some tables}
+		\label{tab:correlation_others}
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\textbf{(a) Different Datasets}\\[0.2cm]
+			\begin{tabular}{lcc}
+				\toprule
+				& Fixed RR & Fixed WI \\
+				\midrule
+				ACSIncome & .94 & .04 \\
+				ACSEmployment {\color{white}aa} & .89 & .01 \\
+				CelebA & .92 & .01 \\
+				\bottomrule
+			\end{tabular} \\ [0.2cm]
+			\textbf{(b) Different Fairness Metrics}\\[0.2cm]
+			\begin{tabular}{lcc}
+				\toprule
+				& Fixed RR & Fixed WI \\
+				\midrule
+				Average Odds & .94 & .04 \\
+				Equal Opportunity & .94 & .05 \\
+				Demographic Parity & .96 & .03 \\
+				\bottomrule
+			\end{tabular} \\
+		\end{minipage}\hfill
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\textbf{(c) Changing Hyperparameters}\\[0.2cm]
+			\begin{tabular}{lcc}
+				\toprule
+				& Fixed RR & Fixed WI \\
+				\midrule
+				Default Hyperparameters & .94 & .04 \\
+				Batch Size = 16 & .95 & .00 \\
+				Learning Rate = 0.01 & .93 & .00 \\
+				Arch = \{2048, 64\} & .92 & .00 \\
+				\addlinespace[2ex]
+				No Dropout & .94 & .04 \\
+				Dropout Rate = 10\% & .88 & .03 \\
+				Dropout Rate = 20\% & .85 & .04 \\
+				Dropout Rate = 30\% & .80 & .13 \\
+				\bottomrule
+			\end{tabular} \\ [0.2cm]
+		\end{minipage}\hfill
+	\end{center}
+\end{table*}

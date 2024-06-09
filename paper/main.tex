@@ -1,11 +1,11 @@
-\documentclass[letterpaper]{article} 
-\usepackage[margin=1in]{geometry}
+\documentclass[letterpaper]{article} % Each conference has it's own template change the beginning of your main file accordingly
+\usepackage[margin=.8in]{geometry}
 
-%Set to 1 to compile Figures
+% The next 6 lines should stay the same for all your projects
+%Set to 1 to compile figures, 0 just import pre-generated pdfs 
 \def\compileFigures{1}
 \newcommand{\filename}{main}
 \newcounter{figureNumber}
-
 \input{packages_and_commands}
 \input{macros}
 
@@ -15,12 +15,12 @@
 \begin{document}
 \maketitle	
 
-\begin{abstract}
-\end{abstract}
-
+\input{sections/sec_figures}
+\input{sections/sec_tables}
 
 	
 %Bibliography
+\bibliographystyle{abbrv}
 \bibliography{references}
 
 \end{document}
